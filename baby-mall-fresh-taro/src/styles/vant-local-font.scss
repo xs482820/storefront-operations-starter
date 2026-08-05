@@ -1,0 +1,42 @@
+@font-face {
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+  font-family: vant-icon;
+  src: url('../assets/vant-icon.woff2') format('woff2');
+}
+
+.van-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font: normal normal normal 28px vant-icon;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+.van-icon::before {
+  display: inline-block;
+}
+
+.van-icon-arrow-left::before { content: '\e668'; }
+.van-icon-after-sale::before { content: '\e661'; }
+.van-icon-bell::before { content: '\e677'; }
+.van-icon-close::before { content: '\e690'; }
+.van-icon-cross::before { content: '\e6a7'; }
+.van-icon-completed::before { content: '\e69a'; }
+.van-icon-description::before { content: '\e6a3'; }
+.van-icon-exchange::before { content: '\e6af'; }
+.van-icon-filter-o::before { content: '\e6b5'; }
+.van-icon-goods-collect-o::before { content: '\e6cd'; }
+.van-icon-logistics::before { content: '\e6df'; }
+.van-icon-paid::before { content: '\e6f1'; }
+.van-icon-pending-payment::before { content: '\e6f8'; }
+.van-icon-search::before { content: '\e710'; }
+.van-icon-service-o::before { content: '\e712'; }
+.van-icon-shop-o::before { content: '\e71b'; }
+.van-icon-shopping-cart-o::before { content: '\e71f'; }
+.van-icon-tosend::before { content: '\e72c'; }
+.van-icon-user-o::before { content: '\e736'; }

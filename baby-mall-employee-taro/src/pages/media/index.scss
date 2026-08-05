@@ -1,0 +1,55 @@
+.media-page { padding-bottom: 46rpx; }
+.media-header, .media-block-head, .media-history-head, .media-history-copy > view { display: flex; align-items: center; justify-content: space-between; }
+.media-header { margin: 18rpx 0 16rpx; }
+.media-title { display: block; color: var(--color-text); font-size: 38rpx; font-weight: 950; }
+.media-subtitle { display: block; margin-top: 5rpx; color: var(--color-muted); font-size: 21rpx; }
+.media-counter { min-width: 66rpx; padding: 8rpx 10rpx; border-radius: 5rpx; background: #e8f1ef; color: var(--color-brand); font-size: 21rpx; font-weight: 850; text-align: center; }
+.media-history-copy > view text:last-child { color: var(--color-muted); font-size: 22rpx; }
+.media-source { padding: 16rpx; }
+.media-source-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12rpx; }
+.media-source-head text:first-child { color: var(--color-text); font-size: 24rpx; font-weight: 850; }
+.media-source-head text:last-child { color: var(--color-muted); font-size: 20rpx; }
+.media-strip { white-space: nowrap; }
+.media-strip-inner { display: inline-flex; gap: 12rpx; padding-right: 4rpx; }
+.media-thumb, .media-add { width: 138rpx; height: 138rpx; flex: 0 0 138rpx; overflow: hidden; border: 1rpx solid var(--color-border); border-radius: 6rpx; position: relative; }
+.media-thumb image { width: 100%; height: 100%; }
+.media-remove { position: absolute; top: 6rpx; right: 6rpx; width: 34rpx; height: 34rpx; border-radius: 50%; background: rgba(0, 0, 0, .58); color: #fff; text-align: center; line-height: 31rpx; font-size: 28rpx; }
+.media-add { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5rpx; border-style: dashed; background: var(--color-canvas); color: var(--color-muted); font-size: 19rpx; }
+.media-add text:first-child { color: var(--color-brand); font-size: 46rpx; line-height: 1; }
+.media-block { margin-top: 16rpx; padding: 18rpx; }
+.media-block-head { align-items: flex-start; margin-bottom: 14rpx; color: var(--color-text); font-size: 25rpx; font-weight: 850; }
+.media-block-head > view > text:first-child { display: block; }
+.media-block-head > view > text:last-child { display: block; margin-top: 5rpx; color: var(--color-muted); font-size: 19rpx; font-weight: 500; }
+.media-template-save { color: var(--color-brand); font-size: 21rpx; font-weight: 750; }
+.media-template-block { margin: -2rpx 0 14rpx; }
+.media-template-label { display: block; margin-bottom: 8rpx; color: var(--color-muted); font-size: 20rpx; }
+.media-template-scroll { white-space: nowrap; }
+.media-template-list { display: inline-flex; gap: 8rpx; padding-right: 4rpx; }
+.media-template-chip { display: inline-flex; align-items: center; max-width: 220rpx; padding: 8rpx 10rpx; border: 1rpx solid var(--color-border); border-radius: 6rpx; color: var(--color-text); background: var(--color-surface); font-size: 20rpx; line-height: 1; }
+.media-template-chip.is-shared { border-color: rgba(43, 117, 90, .3); color: var(--color-brand); }
+.media-template-chip > text:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.media-template-delete { margin-left: 7rpx; color: var(--color-muted); font-size: 25rpx; line-height: .7; }
+.media-controls { display: grid; gap: 12rpx; margin: 0 0 16rpx; }
+.media-controls > view { display: flex; align-items: center; gap: 8rpx; overflow-x: auto; white-space: nowrap; }
+.media-controls > view > text:first-child { width: 52rpx; flex: 0 0 52rpx; color: var(--color-muted); font-size: 20rpx; }
+.media-controls > view > text:not(:first-child) { padding: 8rpx 13rpx; border: 1rpx solid var(--color-border); border-radius: 5rpx; background: var(--color-canvas); color: var(--color-muted); font-size: 20rpx; font-weight: 750; }
+.media-controls > view > text.is-active { border-color: var(--color-brand); background: #e7f2ef; color: var(--color-brand); }
+.media-controls > view.is-disabled { opacity: .42; }
+.media-prompt { width: 100%; min-height: 126rpx; box-sizing: border-box; padding: 16rpx; border: 1rpx solid var(--color-border); border-radius: 6rpx; background: #fbfcfc; color: var(--color-text); font-size: 24rpx; line-height: 1.45; }
+.media-submit { height: 82rpx; margin-top: 16rpx; border-radius: 6rpx; background: var(--color-text); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 26rpx; font-weight: 900; }
+.media-submit.is-disabled { opacity: .55; }
+.media-pending { display: flex; align-items: center; gap: 12rpx; margin-top: 16rpx; color: var(--color-muted); font-size: 22rpx; }
+.media-loader { width: 22rpx; height: 22rpx; box-sizing: border-box; border: 3rpx solid rgba(43, 117, 90, .2); border-top-color: var(--color-brand); border-radius: 50%; animation: media-spin .8s linear infinite; }
+.media-history-head { margin-top: 24rpx; color: var(--color-text); font-size: 27rpx; font-weight: 900; }
+.media-history-head text:last-child { color: var(--color-brand); font-size: 21rpx; font-weight: 700; }
+.media-history { display: grid; gap: 0; margin-top: 10rpx; padding: 0 4rpx; }
+.media-empty { padding: 24rpx 0; color: var(--color-muted); text-align: center; font-size: 22rpx; }
+.media-history-item { display: flex; gap: 14rpx; min-width: 0; padding: 14rpx 0; border-bottom: 1rpx solid var(--color-border); }
+.media-history-preview { display: flex; align-items: center; justify-content: center; width: 94rpx; height: 94rpx; flex: 0 0 94rpx; overflow: hidden; border-radius: 6rpx; background: var(--color-bg); color: var(--color-muted); }
+.media-history-preview image { width: 100%; height: 100%; }
+.media-history-preview.failed { color: #b63f32; background: #fff1ee; }
+.media-history-copy { min-width: 0; flex: 1; }
+.media-history-copy > view text:first-child { color: var(--color-text); font-size: 23rpx; font-weight: 800; }
+.media-history-copy > text { display: block; margin-top: 6rpx; overflow: hidden; color: var(--color-muted); font-size: 21rpx; line-height: 1.35; text-overflow: ellipsis; white-space: nowrap; }
+.media-history-error { color: #b63f32 !important; }
+@keyframes media-spin { to { transform: rotate(360deg); } }

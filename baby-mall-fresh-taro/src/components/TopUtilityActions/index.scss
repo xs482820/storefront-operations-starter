@@ -1,0 +1,116 @@
+.top-utility-actions {
+  position: fixed;
+  top: calc(var(--capsule-bottom) + 15rpx);
+  right: 28rpx;
+  z-index: 21;
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.top-utility-button {
+  position: relative;
+  width: 60rpx;
+  height: 60rpx;
+  border: 1rpx solid rgba(45, 41, 38, 0.1);
+  border-radius: var(--radius-control);
+  background: rgba(255, 253, 251, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.top-utility-glyph {
+  color: var(--color-text);
+}
+
+.top-utility-dot {
+  position: absolute;
+  right: -8rpx;
+  top: -8rpx;
+  min-width: 26rpx;
+  height: 26rpx;
+  padding: 0 5rpx;
+  border: 2rpx solid var(--color-canvas);
+  border-radius: 14rpx;
+  background: var(--color-danger);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17rpx;
+  font-weight: 900;
+  line-height: 1;
+  box-sizing: border-box;
+}
+
+.top-service-sheet {
+  padding: 16rpx 28rpx calc(var(--safe-bottom) + 30rpx);
+  background: var(--color-canvas);
+}
+
+.top-service-handle {
+  width: 72rpx;
+  height: 8rpx;
+  margin: 0 auto 18rpx;
+  border-radius: 8rpx;
+  background: rgba(45, 41, 38, 0.16);
+}
+
+.top-service-head,
+.top-service-wechat-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18rpx;
+}
+
+.top-service-title,
+.top-service-copy,
+.top-service-wechat-label,
+.top-service-wechat-value {
+  display: block;
+}
+
+.top-service-title { color: var(--color-text); font-size: 34rpx; font-weight: 900; }
+.top-service-copy { margin-top: 6rpx; color: var(--color-text-muted); font-size: 22rpx; line-height: 1.45; }
+
+.top-service-close {
+  width: 52rpx;
+  height: 52rpx;
+  border: 1rpx solid rgba(45, 41, 38, 0.1);
+  border-radius: var(--radius-control);
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36rpx;
+  line-height: 1;
+}
+
+.top-service-wechat-row {
+  min-height: 94rpx;
+  margin-top: 24rpx;
+  padding: 16rpx 18rpx;
+  border: 1rpx solid rgba(45, 41, 38, 0.08);
+  border-radius: 12rpx;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.top-service-wechat-label { color: var(--color-text-muted); font-size: 23rpx; font-weight: 800; }
+.top-service-wechat-value { min-width: 0; flex: 1; color: var(--color-text); font-size: 27rpx; font-weight: 900; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.top-service-copy-button {
+  min-width: 80rpx;
+  height: 50rpx;
+  border-radius: 10rpx;
+  background: var(--color-primary-deep);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22rpx;
+  font-weight: 850;
+}

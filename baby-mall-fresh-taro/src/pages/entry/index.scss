@@ -1,0 +1,127 @@
+.entry-page {
+  padding: calc(var(--capsule-bottom) + 30rpx) 36rpx 54rpx;
+}
+
+.entry-shell {
+  min-height: calc(100vh - var(--capsule-bottom) - 84rpx);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 42rpx;
+}
+
+.entry-hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 52rpx;
+}
+
+.entry-orbit {
+  position: relative;
+  width: 390rpx;
+  height: 390rpx;
+  margin: 0 auto;
+}
+
+.entry-orbit-large,
+.entry-orbit-small,
+.entry-logo-mark {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.entry-orbit-large {
+  inset: 18rpx;
+  background: linear-gradient(145deg, rgba(167, 96, 67, 0.2), rgba(117, 66, 53, 0.08));
+  box-shadow: var(--shadow-soft);
+}
+
+.entry-orbit-small {
+  right: 16rpx;
+  bottom: 48rpx;
+  width: 112rpx;
+  height: 112rpx;
+  background: rgba(216, 154, 43, 0.2);
+}
+
+.entry-logo-mark {
+  left: 50%;
+  top: 50%;
+  width: 178rpx;
+  height: 178rpx;
+  transform: translate(-50%, -50%);
+  background: var(--color-surface);
+  color: var(--color-primary-deep);
+  border: 2rpx solid rgba(117, 66, 53, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80rpx;
+  font-weight: 950;
+  box-shadow: 0 18rpx 50rpx rgba(45, 41, 38, 0.1);
+}
+
+.entry-brand {
+  text-align: center;
+}
+
+.entry-eyebrow,
+.entry-title,
+.entry-copy,
+.entry-safe-copy {
+  display: block;
+}
+
+.entry-eyebrow {
+  color: var(--color-primary-deep);
+  font-size: 34rpx;
+  font-weight: 950;
+  letter-spacing: 4rpx;
+}
+
+.entry-title {
+  margin-top: 18rpx;
+  color: var(--color-text);
+  font-size: 58rpx;
+  line-height: 1.08;
+  font-weight: 950;
+}
+
+.entry-copy {
+  max-width: 520rpx;
+  margin: 24rpx auto 0;
+  color: var(--color-text-muted);
+  font-size: 27rpx;
+  line-height: 1.62;
+}
+
+.entry-action-card {
+  padding: 28rpx;
+  border-radius: 34rpx;
+  background: rgba(255, 253, 248, 0.84);
+  border: 1rpx solid rgba(117, 66, 53, 0.08);
+  box-shadow: var(--shadow-soft);
+}
+
+.entry-action-card .van-button--primary {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  box-shadow: 0 16rpx 34rpx rgba(167, 96, 67, 0.24);
+}
+
+.entry-safe-copy {
+  margin-top: 18rpx;
+  color: var(--color-text-faint);
+  font-size: 23rpx;
+  text-align: center;
+}
+
+.entry-skip {
+  margin-top: 20rpx;
+  color: var(--color-primary-deep);
+  font-size: 25rpx;
+  font-weight: 850;
+  text-align: center;
+}

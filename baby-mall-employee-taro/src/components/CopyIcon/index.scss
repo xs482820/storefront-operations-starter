@@ -1,0 +1,4 @@
+.copy-action { position: relative; width: 34rpx; height: 34rpx; flex: 0 0 34rpx; }
+.copy-action-back, .copy-action-front { position: absolute; width: 18rpx; height: 20rpx; border: 2rpx solid var(--color-muted); border-radius: 3rpx; box-sizing: border-box; }
+.copy-action-back { left: 2rpx; top: 2rpx; opacity: .58; }
+.copy-action-front { right: 2rpx; bottom: 2rpx; background: var(--color-surface); }

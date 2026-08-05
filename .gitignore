@@ -1,0 +1,36 @@
+# Runtime configuration and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+
+# Node / Taro / Vite
+node_modules/
+dist/
+.taro/
+project.private.config.json
+
+# Runtime data and uploads
+backend/uploads/
+backend/data/*.json
+!backend/data/storefront-config.example.json
+backend/app_tmp_sync/
+data/
+
+# Local exports and internal working notes
+*.tgz
+*PLAN.md
+
+# Editor and OS files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

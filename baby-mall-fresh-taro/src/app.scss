@@ -1,0 +1,59 @@
+page {
+  --color-canvas: #f6f3ef;
+  --color-canvas-end: #f1ece6;
+  --color-surface: #fffdfb;
+  --color-surface-soft: #f1ebe5;
+  --color-text: #2d2926;
+  --color-text-muted: #756d66;
+  --color-text-faint: #aaa19a;
+  --color-primary: #a76043;
+  --color-primary-deep: #754235;
+  --color-success: #3f8f6b;
+  --color-warning: #bd8741;
+  --color-danger: #d64545;
+  --color-info: #4d7c9b;
+  --color-border: #e5ddd5;
+  --shadow-soft: 0 10rpx 30rpx rgba(65, 48, 38, 0.06);
+  --shadow-raised: 0 14rpx 34rpx rgba(65, 48, 38, 0.1);
+  --radius-card: 20rpx;
+  --radius-control: 12rpx;
+  min-height: 100%;
+  background: var(--color-canvas);
+  color: var(--color-text);
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', sans-serif;
+}
+
+view,
+text {
+  box-sizing: border-box;
+}
+
+.safe-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, var(--color-canvas) 0%, var(--color-canvas-end) 100%);
+}
+
+.tabbar-backdrop {
+  position: fixed;
+  z-index: 34;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: calc(var(--safe-bottom) + 206rpx);
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(246, 243, 239, 0.08) 0, rgba(246, 243, 239, 0.48) 42rpx, rgba(246, 243, 239, 0.68) 100%);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 42rpx, #000 100%);
+  mask-image: linear-gradient(180deg, transparent 0, #000 42rpx, #000 100%);
+}
+
+.van-button--primary {
+  background: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.van-button--primary:active {
+  background: var(--color-primary-deep) !important;
+  border-color: var(--color-primary-deep) !important;
+}

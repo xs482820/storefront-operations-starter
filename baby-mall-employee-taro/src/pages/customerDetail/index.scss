@@ -1,0 +1,22 @@
+.customer-detail-loading, .customer-detail-error { display: block; margin-top: 24rpx; color: var(--color-muted); font-size: 26rpx; }
+.customer-detail-error { color: var(--color-danger); }
+.customer-profile-card { display: flex; align-items: center; gap: 16rpx; padding: 20rpx; }
+.customer-detail-avatar { width: 74rpx; height: 74rpx; border-radius: 10rpx; overflow: hidden; background: #e1ebea; display: flex; align-items: center; justify-content: center; color: var(--color-brand); font-size: 32rpx; font-weight: 900; flex: 0 0 74rpx; }
+.customer-detail-avatar image { width: 100%; height: 100%; }
+.customer-detail-name, .customer-detail-meta { display: block; }
+.customer-detail-name { font-size: 30rpx; font-weight: 900; }
+.customer-detail-meta { margin-top: 7rpx; color: var(--color-muted); font-size: 22rpx; }
+.customer-detail-meta-row { display: flex; align-items: center; gap: 8rpx; }
+.customer-runtime-grid { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 18rpx; border: 1rpx solid var(--color-border); border-radius: var(--radius-card); background: var(--color-surface); }
+.customer-runtime-grid view { padding: 16rpx 6rpx; border-right: 1rpx solid var(--color-border); text-align: center; }
+.customer-runtime-grid view:last-child { border-right: 0; }
+.customer-runtime-grid text { display: block; }
+.customer-runtime-grid text:first-child { font-size: 30rpx; font-weight: 950; }
+.customer-runtime-grid text:last-child { margin-top: 4rpx; color: var(--color-muted); font-size: 20rpx; }
+.customer-detail-card { padding: 18rpx 20rpx; }
+.customer-detail-card text { display: block; margin-top: 9rpx; color: var(--color-muted); font-size: 23rpx; line-height: 1.45; }
+.customer-detail-card text:first-child { margin-top: 0; }
+.customer-detail-copy-line { display: flex; align-items: center; justify-content: flex-start; gap: 8rpx; margin-top: 9rpx; }
+.customer-detail-copy-line text:first-child { flex: 0 1 auto; min-width: 0; }
+.customer-detail-copy-line:first-child { margin-top: 0; }
+.customer-detail-license { width: 160rpx; height: 110rpx; margin-top: 14rpx; border-radius: 8rpx; background: var(--color-canvas); }

@@ -1,0 +1,5 @@
+declare module '@antmjs/vantui/lib/button'
+declare module '@antmjs/vantui/lib/empty'
+declare module '@antmjs/vantui/lib/icon'
+declare module '@antmjs/vantui/lib/popup'
+declare module '@antmjs/vantui/lib/tag'
