@@ -1,5 +1,7 @@
 # Storefront Operations Starter
 
+[English](README.md) | [简体中文](README.zh-CN.md)
+
 An open-source storefront operations system for small retail and wholesale businesses.
 
 It brings customer ordering, staff fulfillment, and store administration into one codebase. Use it as a self-hosted starting point for a private shop, a local retailer, or a lightweight wholesale operation.
