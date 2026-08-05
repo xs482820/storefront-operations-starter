@@ -1,46 +1,100 @@
 # Storefront Operations Starter
 
-一个面向小型零售和批发门店的开源经营系统：客户小程序、店员工作台、管理后台与 FastAPI 后端共用订单、商品、库存和售后数据。
+An open-source storefront operations system for small retail and wholesale businesses.
 
-> 这是从实际门店场景中抽离出的通用版本。仓库不包含生产数据、真实门店信息、域名、支付证书、微信 AppID、AI 密钥或打印设备凭证。
+It brings customer ordering, staff fulfillment, and store administration into one codebase. Use it as a self-hosted starting point for a private shop, a local retailer, or a lightweight wholesale operation.
 
-## 能做什么
+> This repository is a generic starter. It contains no production database, customer records, store identity, payment credentials, Mini Program AppIDs, AI keys, printer credentials, or uploaded files.
 
-- 商品、分类、SKU、库存与零售/批发双价格
-- 客户购物、地址、订单、售后与消息通知
-- 店员订单履约、发货凭证、客户和商品只读查询
-- 管理后台的商品、订单、售后、用户、门店配置与操作记录
-- 可选的打印任务与 AI 图片任务接口，默认关闭，不绑定任何供应商
+## Why This Project
 
-## 技术栈
+Small stores often need more than a storefront but less than a large ERP. This project focuses on the everyday operational loop:
 
-- 后端：FastAPI、SQLAlchemy、Alembic、PostgreSQL、Redis
-- 管理后台：Vue 3、TypeScript、Vite、Element Plus
-- 客户与店员端：Taro 4、React、TypeScript，可编译为微信小程序
+- Publish products with categories, SKUs, inventory, and retail/wholesale prices.
+- Let customers browse, order, manage addresses, request after-sales service, and receive notices.
+- Give staff a focused workspace for order fulfillment, shipping evidence, and read-only customer/product lookup.
+- Give store owners a web admin for products, orders, after-sales cases, accounts, store settings, and audit logs.
 
-## 本地启动
+Optional integration points are included for printing and AI image tasks. They are disabled by default and do not lock you into a vendor.
 
-1. 复制 `.env.example` 为 `.env`，把 `JWT_SECRET_KEY` 换成随机长字符串。
-2. 复制 `backend/data/storefront-config.example.json` 为 `backend/data/storefront-config.json`。
-3. 启动 Docker：`docker compose up --build`。
-4. 打开 `http://localhost:19080` 访问管理后台，后端地址为 `http://localhost:19000`。
+## Architecture
 
-首次使用需按你的部署方式执行数据库迁移，并通过管理后台创建管理员、店员和商品。仓库刻意不提供通用默认管理员密码。
+```text
+Customer Mini Program  ─┐
+Staff Mini Program     ─┼── FastAPI API ── PostgreSQL / Redis
+Admin Web Console      ─┘
+```
 
-## 小程序配置
+| Part | Stack | Purpose |
+| --- | --- | --- |
+| `backend/` | FastAPI, SQLAlchemy, Alembic | API, authorization, business rules, jobs |
+| `frontend-admin/` | Vue 3, TypeScript, Vite, Element Plus | Store administration console |
+| `baby-mall-fresh-taro/` | Taro 4, React, TypeScript | Customer-facing Mini Program |
+| `baby-mall-employee-taro/` | Taro 4, React, TypeScript | Staff workbench Mini Program |
 
-两个 Taro 项目的 `project.config.json` 不含 AppID。导入微信开发者工具前填入你自己的 AppID；在小程序的设置页填入可访问的 API 地址，或修改 `src/services/http.ts` 的默认地址。生产部署应使用 HTTPS 域名并在微信公众平台配置合法域名。
+## Quick Start
 
-## 集成边界
+### Prerequisites
 
-- 微信支付、手机号能力、订阅消息：需要自行配置商户和小程序凭证。
-- AI 图片服务：支持 OpenAI 兼容服务配置，但 API Key 只应放在私有部署环境。
-- 打印：后端只保存和派发打印任务，具体网关由部署者接入。
+- Docker and Docker Compose
+- Node.js 20+ for Mini Program development
+- WeChat Developer Tools if you want to compile the Taro apps as Mini Programs
 
-## 安全说明
+### Run the backend and admin console
 
-不要提交 `.env`、证书、上传目录、数据库备份或真实的 `storefront-config.json`。在公开部署前关闭模拟支付与调试设置，并设置强随机 `JWT_SECRET_KEY`。
+1. Copy `.env.example` to `.env` and replace `JWT_SECRET_KEY` with a long random value.
+2. Copy `backend/data/storefront-config.example.json` to `backend/data/storefront-config.json`.
+3. Start the local stack:
+
+   ```bash
+   docker compose up --build
+   ```
+
+4. Open `http://localhost:19080` for the admin console. The API is available at `http://localhost:19000`.
+
+Run database migrations according to your deployment workflow, then create your own administrator, staff accounts, categories, and products. No default administrator password is included.
+
+### Run a Mini Program
+
+Each Taro project has its own `package.json`:
+
+```bash
+cd baby-mall-fresh-taro
+npm install
+npm run dev:weapp
+```
+
+Import the project into WeChat Developer Tools, set your own AppID in `project.config.json`, and configure an HTTPS API domain for production. Repeat the same process in `baby-mall-employee-taro` for the staff app.
+
+## Integrations
+
+The core system runs without any third-party commercial integration. Enable these only when you have configured your own credentials:
+
+- **WeChat capabilities**: payment, phone-number access, and subscription messages.
+- **AI images**: an OpenAI-compatible image service, with keys stored only in your private deployment environment.
+- **Printing**: a printer gateway that consumes print jobs created by the backend.
+
+## Deployment Notes
+
+- Use HTTPS and a strong `JWT_SECRET_KEY` in production.
+- Keep `.env`, certificates, uploads, database backups, and real `storefront-config.json` files outside Git.
+- Review payment, delivery, and after-sales rules before serving real customers. The included flows are a foundation, not legal or accounting advice.
+
+## Contributing
+
+Contributions are welcome. Small, focused pull requests are easiest to review:
+
+1. Open an issue describing the problem or proposed change.
+2. Keep changes scoped and include a reproducible check for non-trivial logic.
+3. Do not include credentials, production data, customer information, or vendor-specific private configuration.
+
+## Roadmap
+
+- Improve local development fixtures and demo data.
+- Add deployment guides for common self-hosted environments.
+- Expand printer gateway examples and integration documentation.
+- Improve accessibility and cross-device Mini Program testing.
 
 ## License
 
-[MIT](LICENSE)
+Released under the [MIT License](LICENSE).
