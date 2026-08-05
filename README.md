@@ -19,6 +19,12 @@ Small stores often need more than a storefront but less than a large ERP. This p
 
 Optional integration points are included for printing and AI image tasks. They are disabled by default and do not lock you into a vendor.
 
+## Project Status
+
+This project is maintained by an individual developer and grew out of hands-on exploration in a real operating context. It has known gaps in documentation, test coverage, deployment ergonomics, and edge-case handling. Feedback and focused contributions are welcome.
+
+The production deployment remains the primary maintenance priority, so this public starter does not promise a fixed release schedule or feature parity with any private deployment. Updates are published when they can be generalized safely and are useful to other self-hosted users.
+
 ## Architecture
 
 ```text
