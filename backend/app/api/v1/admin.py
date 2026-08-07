@@ -60,7 +60,7 @@ from app.services.inventory import set_online_stock
 from app.services.ops_jobs import auto_cancel_expired_orders, auto_complete_shipped_orders
 from app.services.orders import delete_order, mark_order_paid, terminate_order
 from app.services.image_ai import test_store_image_service
-from app.services.storefront_config import load_storefront_config, merge_storefront_config, public_storefront_config, STOREFRONT_CONFIG_PATH
+from app.services.storefront_config import load_storefront_config, merge_storefront_config, public_storefront_config, validate_storefront_requirements, STOREFRONT_CONFIG_PATH
 from app.api.v1.employee import _serialize_image_history, _serialize_image_prompt_template
 
 router = APIRouter(prefix="/admin", tags=["admin"])
@@ -1457,6 +1457,10 @@ async def update_storefront_config(
         except Exception:
             previous = None
     result = merge_storefront_config(previous, payload)
+    try:
+        validate_storefront_requirements(result, payload)
+    except ValueError as exc:
+        raise bad_request(str(exc)) from exc
     STOREFRONT_CONFIG_PATH.parent.mkdir(parents=True, exist_ok=True)
     STOREFRONT_CONFIG_PATH.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
     await write_business_event(

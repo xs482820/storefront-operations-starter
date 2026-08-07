@@ -14,6 +14,7 @@ COPY pyproject.toml /app/pyproject.toml
 COPY app /app/app
 COPY alembic /app/alembic
 COPY alembic.ini /app/alembic.ini
+COPY scripts /app/scripts
 
 RUN pip install --no-cache-dir -i https://pypi.tuna.tsinghua.edu.cn/simple .
 

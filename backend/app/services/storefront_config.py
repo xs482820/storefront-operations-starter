@@ -701,6 +701,16 @@ def merge_storefront_config(previous: Any, payload: Any) -> dict[str, Any]:
     return result
 
 
+def validate_storefront_requirements(config: dict[str, Any], payload: Any) -> None:
+    """Keep the public storefront usable when its core business details change."""
+    if not isinstance(payload, dict):
+        return
+    if "store_info" in payload and not str(config.get("store_info", {}).get("name", "")).strip():
+        raise ValueError("store_info.name is required")
+    if "customer_service" in payload and not str(config.get("customer_service", {}).get("wechat_id", "")).strip():
+        raise ValueError("customer_service.wechat_id is required")
+
+
 def load_storefront_config(*, include_secrets: bool = False) -> dict[str, Any]:
     if not STOREFRONT_CONFIG_PATH.exists():
         return default_storefront_config(include_secrets=include_secrets)

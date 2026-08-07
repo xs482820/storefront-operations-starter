@@ -2,6 +2,7 @@
 .env
 .env.*
 !.env.example
+!.env.oss-demo.example
 *.pem
 *.key
 

@@ -478,6 +478,10 @@ async function saveSection() {
     if (activeTab.value === 'store') {
       payload.store_info = { name: String(form.store_info?.name || '').trim(), phone: String(form.store_info?.phone || '').trim(), address: String(form.store_info?.address || '').trim(), pickup_note: String(form.store_info?.pickup_note || '').trim() }
       payload.customer_service = { wechat_id: String(form.customer_service?.wechat_id || '').trim(), wechat_qr_url: normalizeImageUrl(form.customer_service?.wechat_qr_url) }
+      if (!payload.store_info.name || !payload.customer_service.wechat_id) {
+        ElMessage.warning('门店名称和客服微信号为必填项')
+        return
+      }
     }
     if (activeTab.value === 'notify') payload.notification_settings = form.notification_settings
     if (activeTab.value === 'layout') payload.print_layout = String(form.print_layout || '').trim()

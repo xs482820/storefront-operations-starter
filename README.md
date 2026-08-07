@@ -42,6 +42,8 @@ Admin Web Console      ─┘
 
 ## Quick Start
 
+For an isolated, safe demonstration stack with neutral sample data, see [Open-source demo environment](docs/open-source-demo.md).
+
 ### Prerequisites
 
 - Docker and Docker Compose

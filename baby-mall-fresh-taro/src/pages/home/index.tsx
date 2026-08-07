@@ -64,6 +64,7 @@ export default function HomePage() {
   const [productList, setProductList] = useState<Product[]>([])
   const [homeAnnouncements, setHomeAnnouncements] = useState<HomeAnnouncement[]>([])
   const [homeBanners, setHomeBanners] = useState<HomeBanner[]>([])
+  const [storeName, setStoreName] = useState('')
   const [catalogError, setCatalogError] = useState('')
   const [profileUnread, setProfileUnread] = useState(0)
   const currentScrollTop = useRef(0)
@@ -113,6 +114,7 @@ export default function HomePage() {
     fetchStorefrontConfig()
       .then((config) => {
         if (!alive) return
+        setStoreName(config.store_info?.name?.trim() || '')
         setHomeBanners((config.home_banners || [])
           .filter((banner) => banner.is_active && banner.image_url)
           .sort((first, second) => Number(second.sort_order || 0) - Number(first.sort_order || 0))
@@ -134,6 +136,7 @@ export default function HomePage() {
       })
       .catch(() => {
         if (!alive) return
+        setStoreName('')
         setHomeBanners([])
         setHomeAnnouncements([])
       })
@@ -340,7 +343,7 @@ export default function HomePage() {
               <View className="brand-avatar" aria-label="示例门店">
                 <Text>店</Text>
               </View>
-              <Text className="fresh-title">示例门店</Text>
+              <Text className="fresh-title">{storeName || 'Storefront'}</Text>
             </View>
           </View>
 
