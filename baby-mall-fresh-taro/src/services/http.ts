@@ -16,7 +16,8 @@ export type ApiErrorPayload = {
 }
 
 // Replace this in a private deployment, or set it in the app's connection settings.
-const DEFAULT_API_BASE_URL = 'http://127.0.0.1:19000/api/v1'
+const BUILD_API_BASE_URL = process.env.TARO_APP_API_BASE_URL || ''
+const DEFAULT_API_BASE_URL = BUILD_API_BASE_URL || 'http://127.0.0.1:19000/api/v1'
 const API_BASE_URL_KEY = 'baby_mall_fresh_api_base_url'
 const AUTH_TOKEN_KEY = 'baby_mall_fresh_auth_token'
 
@@ -25,6 +26,7 @@ function trimSlash(value: string) {
 }
 
 export function getApiBaseUrl() {
+  if (BUILD_API_BASE_URL) return BUILD_API_BASE_URL
   const raw = Taro.getStorageSync(API_BASE_URL_KEY)
   if (typeof raw === 'string') {
     const value = trimSlash(raw)

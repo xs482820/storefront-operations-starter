@@ -1,6 +1,7 @@
 import Taro from '@tarojs/taro'
 
-const DEFAULT_API_BASE_URL = 'http://127.0.0.1:19000/api/v1'
+const BUILD_API_BASE_URL = process.env.TARO_APP_API_BASE_URL || ''
+const DEFAULT_API_BASE_URL = BUILD_API_BASE_URL || 'http://127.0.0.1:19000/api/v1'
 const API_BASE_URL_KEY = 'storefront_employee_api_base_url'
 const TOKEN_KEY = 'baby_mall_employee_auth_token'
 
@@ -9,6 +10,7 @@ function trimSlash(value: string) {
 }
 
 export function getApiBaseUrl() {
+  if (BUILD_API_BASE_URL) return BUILD_API_BASE_URL
   const raw = Taro.getStorageSync(API_BASE_URL_KEY)
   return typeof raw === 'string' && trimSlash(raw) ? trimSlash(raw) : DEFAULT_API_BASE_URL
 }

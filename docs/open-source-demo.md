@@ -1,6 +1,6 @@
 # Open-source demo environment
 
-This stack is separate from the default development environment. It starts with one local administrator, three neutral sample products, and a single notice. It never imports customers, orders, payments, after-sales records, uploads, or production configuration.
+This stack is separate from the default development environment. It starts with one local administrator, one local staff account, three neutral sample products, and a single notice. It never imports customers, orders, payments, after-sales records, uploads, or production configuration.
 
 1. Copy `.env.oss-demo.example` to `.env.oss-demo`.
 2. Replace `JWT_SECRET_KEY`, `POSTGRES_PASSWORD`, `DATABASE_URL`, and `DEMO_ADMIN_PASSWORD` with local secrets.

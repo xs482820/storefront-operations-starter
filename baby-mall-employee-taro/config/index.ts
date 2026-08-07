@@ -14,7 +14,9 @@ const baseConfig: UserConfigExport<'webpack5'> = {
   sourceRoot: 'src',
   outputRoot: 'dist',
   plugins: [],
-  defineConstants: {},
+  defineConstants: {
+    'process.env.TARO_APP_API_BASE_URL': JSON.stringify(process.env.TARO_APP_API_BASE_URL || ''),
+  },
   copy: {
     patterns: [],
     options: {},

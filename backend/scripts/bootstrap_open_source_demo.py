@@ -61,10 +61,15 @@ def write_demo_config() -> None:
 async def seed_database() -> None:
     username = os.getenv("DEMO_ADMIN_USERNAME", "demo-admin").strip() or "demo-admin"
     password = _required_env("DEMO_ADMIN_PASSWORD")
+    employee_username = os.getenv("DEMO_EMPLOYEE_USERNAME", "demo-staff").strip() or "demo-staff"
+    employee_password = _required_env("DEMO_EMPLOYEE_PASSWORD")
     async with SessionLocal() as db:
         admin = await db.scalar(select(User).where(User.username == username))
         if admin is None:
             db.add(User(username=username, password_hash=get_password_hash(password), role=UserRole.ADMIN, is_active=True))
+        employee = await db.scalar(select(User).where(User.username == employee_username))
+        if employee is None:
+            db.add(User(username=employee_username, password_hash=get_password_hash(employee_password), role=UserRole.EMPLOYEE, is_active=True))
 
         for index, category_name in enumerate(("Daily essentials", "Travel"), start=1):
             category = await db.scalar(select(ProductCategory).where(ProductCategory.name == category_name))
