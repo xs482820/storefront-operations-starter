@@ -46,6 +46,7 @@ export async function request<T>(url: string, method: 'GET' | 'POST' = 'GET', da
     method,
     data,
     header: token ? { Authorization: `Bearer ${token}` } : {},
+    timeout: 15000,
   })
   if (response.statusCode >= 200 && response.statusCode < 300) return response.data
   if (response.statusCode === 401) setToken('')
